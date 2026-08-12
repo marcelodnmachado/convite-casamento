@@ -1,0 +1,1369 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #493323 0%,
+            #241811 50%,
+            #100b08 100%
+        );
+
+    color: #4b3324;
+
+    font-family: "Cormorant Garamond", serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   TELA INICIAL
+========================================================= */
+
+#inicio {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px;
+}
+
+
+/* brilho */
+
+#inicio::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(210,170,105,.18),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    animation: brilho 5s infinite alternate;
+}
+
+@keyframes brilho {
+
+    from {
+        transform: scale(.8);
+        opacity: .4;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: .9;
+    }
+}
+
+
+/* =========================================================
+   ESTRELAS / PARTÍCULAS
+========================================================= */
+
+.estrelas {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.7) 1px,
+            transparent 1px
+        );
+
+    background-size: 90px 90px;
+
+    opacity: .18;
+
+    animation: estrelas 10s linear infinite;
+}
+
+@keyframes estrelas {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-90px);
+    }
+}
+
+
+/* =========================================================
+   GARRAFA
+========================================================= */
+
+.garrafa-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+}
+
+
+.garrafa {
+
+    position: relative;
+
+    width: 280px;
+
+    height: 390px;
+
+    transform: rotate(-12deg);
+
+    filter:
+        drop-shadow(
+            0 35px 30px rgba(0,0,0,.7)
+        );
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   GARGALO
+========================================================= */
+
+.gargalo {
+
+    position: absolute;
+
+    width: 70px;
+
+    height: 110px;
+
+    top: 0;
+
+    left: 105px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.25),
+            rgba(110,155,130,.35),
+            rgba(255,255,255,.12)
+        );
+
+    border-radius:
+        20px 20px 8px 8px;
+
+    border:
+        3px solid rgba(255,255,255,.18);
+}
+
+
+/* =========================================================
+   ROLHA
+========================================================= */
+
+.rolha {
+
+    position: absolute;
+
+    width: 62px;
+
+    height: 38px;
+
+    top: -25px;
+
+    left: 109px;
+
+    border-radius: 8px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #8d5d35,
+            #8d5d35 5px,
+            #6f4729 6px,
+            #9f7046 8px
+        );
+
+    box-shadow:
+        inset 0 3px 5px rgba(255,255,255,.15),
+        0 5px 8px rgba(0,0,0,.5);
+}
+
+
+/* =========================================================
+   CORPO DA GARRAFA
+========================================================= */
+
+.corpo-garrafa {
+
+    position: absolute;
+
+    width: 230px;
+
+    height: 300px;
+
+    bottom: 0;
+
+    left: 25px;
+
+    border-radius:
+        30px 30px 70px 70px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(90,135,108,.45),
+            rgba(190,220,195,.22),
+            rgba(80,130,95,.42)
+        );
+
+    border:
+        3px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        inset 10px 0 20px rgba(255,255,255,.15),
+        inset -15px 0 25px rgba(0,0,0,.25);
+}
+
+
+/* reflexo */
+
+.reflexo {
+
+    position: absolute;
+
+    width: 30px;
+
+    height: 220px;
+
+    left: 35px;
+
+    top: 30px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform: rotate(10deg);
+}
+
+
+/* =========================================================
+   PAPEL DENTRO DA GARRAFA
+========================================================= */
+
+.papel-garrafa {
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 180px;
+
+    top: 55px;
+
+    left: 40px;
+
+    padding: 25px 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #f2dfb8,
+            #d5b47c
+        );
+
+    color: #593a26;
+
+    transform: rotate(3deg);
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.3);
+}
+
+.papel-garrafa span {
+
+    font-size: 18px;
+}
+
+.papel-garrafa strong {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 34px;
+
+    font-weight: 400;
+}
+
+.papel-garrafa small {
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   TEXTO INICIAL
+========================================================= */
+
+.mensagem-abertura {
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    color: #e8d2ad;
+
+    margin-top: 35px;
+}
+
+.mensagem-abertura p {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    opacity: .7;
+}
+
+.mensagem-abertura h1 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    margin: 8px 0 25px;
+}
+
+
+/* =========================================================
+   BOTÃO ABRIR
+========================================================= */
+
+#abrirConvite {
+
+    padding: 15px 38px;
+
+    background: transparent;
+
+    color: #e8d2ad;
+
+    border: 1px solid rgba(232,210,173,.6);
+
+    border-radius: 2px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+#abrirConvite:hover {
+
+    background: #e8d2ad;
+
+    color: #3b271b;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.4);
+}
+
+
+/* =========================================================
+   LINHA DECORATIVA
+========================================================= */
+
+.linha-decorativa {
+
+    color: #caa36d;
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   CONVITE
+========================================================= */
+
+#convite {
+
+    width: min(900px, 94%);
+
+    margin: 60px auto;
+
+    position: relative;
+
+    padding:
+        90px
+        clamp(30px, 8vw, 90px);
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255,255,255,.5),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(100,60,30,.10),
+            transparent 30%
+        ),
+
+        #ead9b8;
+
+    box-shadow:
+
+        0 40px 90px rgba(0,0,0,.65),
+
+        inset 0 0 70px
+        rgba(75,45,25,.20);
+
+    border:
+        1px solid rgba(82,53,31,.5);
+
+    animation:
+        cartaAparecer 1.6s ease;
+}
+
+
+/* borda externa */
+
+#convite::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border:
+        1px solid rgba(82,53,31,.4);
+
+    pointer-events: none;
+}
+
+
+/* borda interna */
+
+#convite::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 27px;
+
+    border:
+        1px solid rgba(82,53,31,.15);
+
+    pointer-events: none;
+}
+
+
+@keyframes cartaAparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(100px)
+            scale(.85)
+            rotate(2deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.ornamento-superior {
+
+    font-size: 50px;
+
+    color: #795034;
+
+    margin-bottom: 15px;
+}
+
+.pequeno-titulo {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #806044;
+}
+
+#convite h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(45px, 8vw, 75px);
+
+    font-weight: 500;
+
+    color: #4e3423;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   SEPARADOR
+========================================================= */
+
+.separador {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 15px 0 20px;
+
+    color: #875b3c;
+
+    font-size: 22px;
+}
+
+.separador::before,
+.separador::after {
+
+    content: "";
+
+    width: 100px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #8a6040
+        );
+}
+
+.separador::after {
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            #8a6040
+        );
+}
+
+
+/* =========================================================
+   NOMES
+========================================================= */
+
+.nomes {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    color: #754c33;
+
+    margin-top: 10px;
+}
+
+.nomes span {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(55px, 9vw, 90px);
+
+    font-weight: 400;
+}
+
+.nomes .e {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 42px;
+
+    color: #8c6042;
+}
+
+
+/* =========================================================
+   FRASE
+========================================================= */
+
+.frase {
+
+    max-width: 600px;
+
+    margin: 30px auto 50px;
+
+    font-size: 22px;
+
+    font-style: italic;
+
+    line-height: 1.6;
+
+    color: #5c4432;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.informacoes {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 30px;
+
+    padding: 30px 0;
+
+    border-top:
+        1px solid rgba(78,52,35,.25);
+
+    border-bottom:
+        1px solid rgba(78,52,35,.25);
+}
+
+.informacao {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.icone {
+
+    font-size: 28px;
+
+    color: #80563a;
+
+    margin-bottom: 10px;
+}
+
+.informacao .titulo {
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #876c54;
+
+    margin-bottom: 8px;
+}
+
+.informacao strong {
+
+    font-size: 23px;
+
+    font-weight: 600;
+
+    color: #4e3423;
+}
+
+.informacao small {
+
+    font-size: 15px;
+
+    margin-top: 3px;
+
+    color: #73553d;
+}
+
+.linha {
+
+    width: 1px;
+
+    background:
+        rgba(78,52,35,.25);
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+.contador-section {
+
+    margin: 55px 0;
+}
+
+.contador-titulo {
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 10px;
+
+    color: #806044;
+
+    margin-bottom: 25px;
+}
+
+#contador {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.tempo {
+
+    width: 100px;
+
+    padding: 15px 5px;
+
+    border:
+        1px solid rgba(78,52,35,.2);
+
+    background:
+        rgba(255,255,255,.15);
+}
+
+.tempo strong {
+
+    display: block;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    color: #65452f;
+}
+
+.tempo span {
+
+    display: block;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #806044;
+}
+
+
+/* =========================================================
+   MENSAGEM
+========================================================= */
+
+.mensagem {
+
+    max-width: 600px;
+
+    margin: 50px auto;
+
+    padding: 20px;
+}
+
+.mensagem .decoracao {
+
+    font-size: 45px;
+
+    color: #80563a;
+
+    margin-bottom: 20px;
+}
+
+.mensagem p {
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    margin: 15px 0;
+}
+
+.mensagem .destaque {
+
+    font-weight: 600;
+
+    color: #6d4830;
+}
+
+
+/* =========================================================
+   LOCAL
+========================================================= */
+
+.local {
+
+    margin-top: 50px;
+
+    padding:
+        45px 20px;
+
+    border-top:
+        1px solid rgba(78,52,35,.2);
+}
+
+.icone-grande {
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+.local h2 {
+
+    font-size: 35px;
+
+    font-weight: 500;
+
+    color: #563a27;
+
+    margin-bottom: 10px;
+}
+
+.local p {
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+.local small {
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.botao {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding:
+        15px 30px;
+
+    background: #67442f;
+
+    color: #f3e5cb;
+
+    text-decoration: none;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: .3s;
+
+    box-shadow:
+        0 8px 20px rgba(60,35,20,.2);
+}
+
+.botao:hover {
+
+    background: #4b3021;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(60,35,20,.3);
+}
+
+
+/* =========================================================
+   CONFIRMAÇÃO
+========================================================= */
+
+.confirmacao {
+
+    margin-top: 40px;
+
+    padding:
+        55px 20px;
+
+    border-top:
+        1px solid rgba(78,52,35,.2);
+}
+
+.coracao {
+
+    font-size: 35px;
+
+    color: #85563a;
+
+    margin-bottom: 10px;
+
+    animation:
+        pulsar 1.8s infinite;
+}
+
+@keyframes pulsar {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+.confirmacao h2 {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    color: #704a32;
+}
+
+.confirmacao p {
+
+    max-width: 500px;
+
+    margin: 15px auto;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+.botao.principal {
+
+    padding:
+        17px 35px;
+
+    background: #754b31;
+}
+
+
+/* =========================================================
+   BOTÃO MÚSICA
+========================================================= */
+
+.botao-musica {
+
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding: 13px 18px;
+
+    background: #67442f;
+
+    color: #f3e5cb;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.3);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+.botao-musica:hover {
+
+    transform: translateY(-3px);
+
+    background: #4d3121;
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+footer {
+
+    margin-top: 30px;
+
+    padding-top: 35px;
+
+    border-top:
+        1px solid rgba(78,52,35,.2);
+}
+
+.ornamento-footer {
+
+    font-size: 35px;
+
+    color: #80563a;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+footer strong {
+
+    display: block;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    color: #704a32;
+}
+
+footer small {
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   ESCONDIDO
+========================================================= */
+
+.escondido {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    #inicio {
+
+        padding: 20px;
+    }
+
+    .garrafa {
+
+        transform:
+            rotate(-12deg)
+            scale(.8);
+    }
+
+    .mensagem-abertura h1 {
+
+        font-size: 45px;
+    }
+
+    #convite {
+
+        width: 94%;
+
+        padding:
+            70px 30px;
+
+        margin:
+            30px auto;
+    }
+
+    #convite::before {
+
+        inset: 10px;
+    }
+
+    #convite::after {
+
+        inset: 18px;
+    }
+
+    .nomes {
+
+        gap: 5px;
+    }
+
+    .nomes span {
+
+        font-size: 58px;
+    }
+
+    .nomes .e {
+
+        font-size: 32px;
+    }
+
+    .frase {
+
+        font-size: 19px;
+    }
+
+    .informacoes {
+
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+    .linha {
+
+        width: 70%;
+
+        height: 1px;
+    }
+
+    #contador {
+
+        gap: 5px;
+    }
+
+    .tempo {
+
+        width: 75px;
+
+        padding: 12px 3px;
+    }
+
+    .tempo strong {
+
+        font-size: 25px;
+    }
+
+    .tempo span {
+
+        font-size: 7px;
+    }
+
+    .confirmacao h2 {
+
+        font-size: 45px;
+    }
+
+    .botao-musica span {
+
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .tempo {
+
+        width: 65px;
+    }
+
+    .tempo strong {
+
+        font-size: 22px;
+    }
+
+    .nomes span {
+
+        font-size: 50px;
+    }
+
+    #convite h1 {
+
+        font-size: 40px;
+    }
+}
